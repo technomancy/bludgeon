@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require File.dirname(__FILE__) + '/../lib/bludgeon'
+
+abort "Usage: bludgeon NAME GIT_REPO_URL" if ARGV.size != 2
+Bludgeon.calculate(*ARGV)
