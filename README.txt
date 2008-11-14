@@ -21,8 +21,8 @@ In #merb on Freenode:
 
   $ bludgeon rspec git://github.com/dchelimsky/rspec.git
   == rspec (git://github.com/dchelimsky/rspec.git)
-    Lines: 70166
-    Pages: 1403
+    Lines: 38698
+    Pages: 773
   You could bludgeon someone to death with a printout.
 
 == Requirements:

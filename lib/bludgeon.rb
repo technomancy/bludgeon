@@ -29,8 +29,7 @@ module Bludgeon
     # TODO: wrap long lines?
     def calculate
       line_counts = `find #{DOWNLOAD_LOCATION} -type f | xargs wc -l`.split "\n"
-      line_counts.pop # remove "totals" line
-      @lines = line_counts.map{|i| i.to_i}.inject(0) { |memo, i| memo + i }
+      @lines = line_counts.pop.to_i # last line is total
       @pages = @lines / LINES_PER_PAGE
     end
 
