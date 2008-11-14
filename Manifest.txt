@@ -3,5 +3,6 @@ Manifest.txt
 README.txt
 Rakefile
 bin/bludgeon
+bludgeon.gemspec
 lib/bludgeon.rb
 test/test_bludgeon.rb

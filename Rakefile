@@ -12,7 +12,7 @@ end
 desc "Prepare to upload to the git hubs."
 task :github do
   system "git ls-files > Manifest.txt"
-  system "rake debug_gem > bludgeon.gemspec"
+  system "rake debug_gem | egrep -v \"^\\(in\" > bludgeon.gemspec"
 end
 
 task :gem => :github

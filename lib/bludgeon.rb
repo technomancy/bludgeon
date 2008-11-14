@@ -42,8 +42,9 @@ module Bludgeon
     def download
       puts "Downloading #{url}..."
       system "rm -rf #{DOWNLOAD_LOCATION}"
-      system "git clone #{@url} #{DOWNLOAD_LOCATION} > /dev/null" or
+      system "git clone --depth=1 #{@url} #{DOWNLOAD_LOCATION} > /dev/null" or
         raise "Could not download #{@url}"
+      system "rm -rf #{DOWNLOAD_LOCATION}/.git"
     end
   end
 end
