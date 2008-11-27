@@ -1,9 +1,9 @@
 require 'fileutils'
 
 module Bludgeon
-  VERSION = '0.0.1'
+  VERSION = '0.0.2'
   DOWNLOAD_LOCATION = '/tmp/bludgeon-project'
-  # LINES_PER_PAGE = 50  # TODO: calculate based on font-size
+  LINES_PER_PAGE = 50  # TODO: calculate based on font-size
   BLUDGEON_PAGES = 500 # TODO: is this accurate?
 
   def self.calculate(*args)
@@ -26,7 +26,7 @@ module Bludgeon
       @name = args.pop || extract_name(@url)
       @type = if url =~ /^git:\/\// or url =~ /\.git$/
                 :git
-              elsif url =~ /^svn:\/\// or url =~ /^http:\/\//
+              elsif url =~ /^svn/ or url =~ /^http:\/\//
                 :svn
               else
                 :gem
@@ -35,14 +35,17 @@ module Bludgeon
 
     attr_reader :name, :url, :pages, :type
 
-    # TODO: wrap long lines? (look into the "pr" unix tool; may be able to do this)
     def calculate
-      @pages = 0
-      last_file = ''
-      `find #{DOWNLOAD_LOCATION} -type f | xargs pr | egrep "Page [0-9]+$"`.split("\n").each do |line|
-        time, file, page = line.split(/\s+/)
-      end
-      @pages = page_counts.map{ |c| c[/Page (\d+)$/, 1].to_i }.inject(0){ |sum, x| sum + x }
+      # TODO: switch over to using pr
+#       last_file = ''
+#       `find #{DOWNLOAD_LOCATION} -type f | xargs pr | egrep "Page [0-9]+$"`.split("\n").each do |line|
+#         time, file, page = line.split(/\s+/)
+#       end
+#       @pages = page_counts.map{ |c| c[/Page (\d+)$/, 1].to_i }.inject(0){ |sum, x| sum + x }
+
+      line_counts = `find #{DOWNLOAD_LOCATION} -type f | xargs wc -l`.split "\n"
+      @lines = line_counts.pop.to_i # last line is total
+      @pages = @lines / LINES_PER_PAGE
     end
 
     def bludgeon?
