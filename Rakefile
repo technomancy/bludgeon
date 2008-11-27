@@ -5,6 +5,7 @@ require 'hoe'
 require './lib/bludgeon.rb'
 
 Hoe.new('bludgeon', Bludgeon::VERSION) do |p|
+  p.rubyforge_name = "seattlerb"
   p.developer('Phil Hagelberg', 'technomancy@gmail.com')
   p.extra_dev_deps << ['minitest', '>= 1.3.0']
 end

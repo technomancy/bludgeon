@@ -2,5 +2,5 @@
 
 require File.dirname(__FILE__) + '/../lib/bludgeon'
 
-abort "Usage: bludgeon NAME GIT_REPO_URL" if ARGV.size != 2
+abort "Usage: bludgeon URL" if ARGV.empty? or ARGV.include?('--help')
 Bludgeon.calculate(*ARGV)

@@ -19,7 +19,7 @@ In #merb on Freenode:
 
 == Usage:
 
-  $ bludgeon rspec git://github.com/dchelimsky/rspec.git
+  $ bludgeon git://github.com/dchelimsky/rspec.git
   == rspec (git://github.com/dchelimsky/rspec.git)
     Lines: 38698
     Pages: 773
@@ -33,13 +33,13 @@ In #merb on Freenode:
 
 == Install:
 
-  $ sudo gem install technomancy-bludgeon --source=http://gems.github.com
+  $ sudo gem install bludgeon
 
 == Todo:
 
 * Research actual weight needed to bludgeon someone to death.
 * Allow calculations to take font size into account.
-* Calculate by wrapping long lines instead of truncating.
+* Calculate by wrapping long lines instead of truncating. (use pr utility?)
 * Allow for portrait-orientation printouts when extremely long
   lines are common. (*ahem* Rails.)
 
