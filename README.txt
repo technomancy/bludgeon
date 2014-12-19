@@ -40,7 +40,7 @@ In #merb on Freenode:
 * Research actual weight needed to bludgeon someone to death.
 * Allow calculations to take font size into account.
 * Calculate by wrapping long lines instead of truncating. (use pr utility?)
-* Allow for portrait-orientation printouts when extremely long
+* Allow for landscape-orientation printouts when extremely long
   lines are common. (*ahem* Rails.)
 
 == LICENSE:
